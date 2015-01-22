@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from sys import argv
+import random
 
 script, filename = argv
 
@@ -12,10 +13,8 @@ def make_chains(filename):
     # clean up the text to be strings in a list
     words = read_file.split()
    
-    # HELP! remove commas in the string. do we keep punctuation?
-    # create the tuple
+    # FIXME remove commas in the string. do we keep punctuation?
     chains_dict = {}
-    # count1 = 0
     for index in range(len(words)-2):
         key = (words[index], words[index+1])
         value = words[index+2]
@@ -25,32 +24,28 @@ def make_chains(filename):
             chains_dict[key] = [value]
 
     print chains_dict
+    return chains_dict
 
-    
-    # for word in words:
-    #     while count1 < len(words) - 1:
-    #         count2 = count1 + 1
-    #         string_to_tuple = (words[count1], words[count2])
-    #         new_tuples.append(string_to_tuple)
-    #         count1 = count1 + 1    
-    #         # print string_to_tuple
-    # #print new_tuples
-    # #turn tuples into keys
-    # #assign value to key, then turn k,v pair into dictionary
-    # for ind_tuples in new_tuples:
-    #     new_dicts = {ind_tuples:'0'}
-    # #   print new_dicts
-
-    # super_dict = {}
-    # for d in new_dicts:
-    #     for k,v in d.items():
-    #         super_dict[k].append(v)
-    #         print super_dict
 
 def make_text(chains):
     """Takes a dictionary of markov chains and returns random text
     based off an original text."""
-    return "Here's some random text."
+    # create empty list
+    make_text_list = []
+    # test_list = make_chains()
+    # # 1: append the first tuple key using get() so it's random to the empty list
+    print random.choice(chains.keys())
+        # Would you
+    # 2: randomly select a value in the list in that key-value pair, rand(dictionary [key])
+        # a
+    # 3: take the second value in the first tuple key and create a new tuple with the second value being the randomly selected value from the list
+    # append to empty list
+        # (you, a)
+    # 4: look for that tuple in the dictionary and randomly select the value (repeat step 2)
+    # when to end: stop after a certain number of periods or certain number of words/characters or max char count
+    # end: print list
+
+
 
 def main():
     #args = sys.argv
