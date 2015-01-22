@@ -17,8 +17,9 @@ def make_chains(filename):
     # create the tuple
     new_tuples = []
     count1 = 0
-    while count1 < len(words):
-        for word in range(0,len(words)):
+    
+    for word in words:
+        while count1 < len(words) - 1:
             count2 = count1 + 1
             string_to_tuple = (words[count1], words[count2])
             new_tuples.append(string_to_tuple)
