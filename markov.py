@@ -15,14 +15,15 @@ def make_chains(filename):
    
     # HELP! remove commas in the string. do we keep punctuation?
     # create the tuple
-    # new_tuples = []
-    # count1 = 0
-    # for word in words:
-    #     count2 = count1 + 1
-    #     string_to_tuple = (words[count1], words[count2])
-    #     new_tuples.append(string_to_tuple)
-    #     count1 = count1 + 1    
-    #     print string_to_tuple
+    new_tuples = []
+    count1 = 0
+    while count1 < len(words):
+        for word in range(0,len(words)):
+            count2 = count1 + 1
+            string_to_tuple = (words[count1], words[count2])
+            new_tuples.append(string_to_tuple)
+            count1 = count1 + 1    
+            print string_to_tuple
 
     # convert that to a dictionary version of markov chains
 
