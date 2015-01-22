@@ -11,7 +11,6 @@ def make_chains(filename):
     read_file = filename.read()
     # clean up the text to be strings in a list
     words = read_file.split()
-    print words
    
     # HELP! remove commas in the string. do we keep punctuation?
     # create the tuple
@@ -24,9 +23,13 @@ def make_chains(filename):
             string_to_tuple = (words[count1], words[count2])
             new_tuples.append(string_to_tuple)
             count1 = count1 + 1    
-            print string_to_tuple
-
-    # convert that to a dictionary version of markov chains
+            # print string_to_tuple
+    #print new_tuples
+    #turn tuples into keys
+    #assign value to key, then turn k,v pair into dictionary
+    for ind_tuple in new_tuples:
+        new_dict = {ind_tuple:'0'}
+        print new_dict
 
 def make_text(chains):
     """Takes a dictionary of markov chains and returns random text
