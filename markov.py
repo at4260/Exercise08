@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from sys import argv
 import random
+import string
 
 script, filename = argv
 
@@ -23,7 +24,6 @@ def make_chains(filename):
         else:
             chains_dict[key] = [value]
 
-    print chains_dict
     return chains_dict
 
 
@@ -32,21 +32,29 @@ def make_text(chains):
     based off an original text."""
     # create empty list
     make_text_list = []
-    # test_list = make_chains()
-    # # 1: append the first tuple key using get() so it's random to the empty list
-    print random.choice(chains.keys())
-        # Would you
-    # 2: randomly select a value in the list in that key-value pair, rand(dictionary [key])
-        # a
-    # 3: take the second value in the first tuple key and create a new tuple with the second value being the randomly selected value from the list
-    # append to empty list
-        # (you, a)
-    # 4: look for that tuple in the dictionary and randomly select the value (repeat step 2)
-    # when to end: stop after a certain number of periods or certain number of words/characters or max char count
-    # end: print list
+    
+    # initializer: append the first tuple key using get() so it's random to the empty list
+    first_chain = random.choice(chains.keys())
+    make_text_list.append(first_chain[0])
+    make_text_list.append(first_chain[1])
+    #get random value from initial tuple
+    chain_val = random.choice(chains[first_chain])
+    make_text_list.append(chain_val)   
+    #print make_text_list 
 
+    #max char length = 140
+    #while the length of make_test_list is 
+    while len(string.join(make_text_list)) < 140:
+        new_tuple = (make_text_list[-2], make_text_list[-1])
+    # look up new tuple in chains dictionary and choose random value
+        new_val = random.choice(chains[new_tuple])    
+    # append value to list
+        make_text_list.append(new_val)
+        if make_text_list[-2] == 'I' and make_text_list[-1] == 'Am?':
+            break
 
-
+    print string.join(make_text_list)
+    
 def main():
     #args = sys.argv
 
